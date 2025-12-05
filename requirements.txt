@@ -1,0 +1,9 @@
+pandas
+scikit-learn
+joblib
+prophet
+streamlit
+matplotlib
+requests
+folium
+branca
