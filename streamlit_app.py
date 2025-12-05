@@ -47,11 +47,25 @@ RISK_LEVEL = {
 
 st.set_page_config(layout="wide", page_title="Crime Project (Paper Match)")
 
-BASE_DIR = r"D:\crime_project2"
+# BASE_DIR = r"D:\crime_project2"
+# MODEL_DIR = os.path.join(BASE_DIR, "models")
+# PROPHET_DIR = os.path.join(BASE_DIR, "prophet_models")
+# MAP_DIR = os.path.join(BASE_DIR, "maps")
+# HOT_DIR = os.path.join(BASE_DIR, "hotspots")
+# changed
+# Use app directory as BASE_DIR (cross-platform)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 MODEL_DIR = os.path.join(BASE_DIR, "models")
 PROPHET_DIR = os.path.join(BASE_DIR, "prophet_models")
 MAP_DIR = os.path.join(BASE_DIR, "maps")
 HOT_DIR = os.path.join(BASE_DIR, "hotspots")
+
+# Create folders if running on cloud and missing
+for d in [MODEL_DIR, PROPHET_DIR, MAP_DIR, HOT_DIR]:
+    os.makedirs(d, exist_ok=True)
+
+
 
 st.title("Machine Learning-Based Crime Prediction and Hotspot Analysis")
 
@@ -123,7 +137,7 @@ with tabs[0]:
             st.success(f"### 🟦 Predicted Crime Category: **{label}**")
 
 
- # Tab 1: Predict Location (Spatial Cluster)
+# Tab 1: Predict Location (Spatial Cluster)
 # ============================
 # TAB 1 – Predict Location
 # ============================
