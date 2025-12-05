@@ -8,3 +8,4 @@ requests
 folium
 branca
 lightgbm
+plotly
